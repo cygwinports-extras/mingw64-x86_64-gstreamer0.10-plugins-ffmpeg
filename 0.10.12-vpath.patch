@@ -1,0 +1,11 @@
+--- origsrc/gst-ffmpeg-0.10.12/configure.ac	2011-08-11 01:06:57.284544400 -0500
++++ src/gst-ffmpeg-0.10.12/configure.ac	2011-08-11 01:31:37.013180100 -0500
+@@ -365,7 +365,7 @@ else
+      if test -z "$srcdir" -o "$srcdir" = .; then
+        confcmd=./configure
+      else
+-       confcmd="$origdir"/"$ac_top_srcdir"/gst-libs/ext/libav/configure
++       confcmd="$ac_abs_top_srcdir"/gst-libs/ext/libav/configure
+      fi
+ 
+      AS_MKDIR_P(["$ac_top_build_prefix"gst-libs/ext/libav])

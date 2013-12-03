@@ -1,0 +1,23 @@
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross gst-plugins
+
+NAME="mingw64-x86_64-gstreamer0.10-plugins-ffmpeg"
+VERSION=0.10.13
+RELEASE=3
+CATEGORY="Devel"
+SUMMARY="GStreamer 0.10 FFmpeg plugins for Win64 toolchain"
+DESCRIPTION="GStreamer FFmpeg plug-in contains a set of elements using the
+FFmpeg library code. It contains most popular decoders as well as very fast
+colorspace conversion elements."
+
+PATCH_URI="
+	http://www.linuxfromscratch.org/patches/blfs/svn/gst-ffmpeg-0.10.13-gcc-4.7-1.patch
+	0.10.12-vpath.patch
+"
+
+# hack around linkage of static libs into DLL
+CYGCONF_ARGS="
+	--disable-static
+	--with-ffmpeg-extra-configure=--enable-w32threads
+	lt_cv_deplibs_check_method=pass_all
+"
